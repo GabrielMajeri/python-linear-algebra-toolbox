@@ -104,7 +104,7 @@ def check_preconditioner(
     "Sanity check for a given preconditioner object."
 
     N = original_matrix.shape[0]
-    biases = np.ones(N)
+    biases = np.ones(N, dtype=np.float64)
 
     # Solve the system using the dense preconditioning matrix
     correct_solution = np.linalg.solve(original_matrix, biases)

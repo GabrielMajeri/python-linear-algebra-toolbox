@@ -21,5 +21,9 @@ Issues = "https://github.com/GabrielMajeri/python-linear-algebra-toolbox/issues"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.basedpyright]
+reportMissingImports = "error"
+typeCheckingMode = "all"
+
 [tool.pytest.ini_options]
 addopts = ["--import-mode=importlib"]
