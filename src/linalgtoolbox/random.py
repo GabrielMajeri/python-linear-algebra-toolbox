@@ -1,6 +1,6 @@
 "Helpers for generating random matrices of various kinds."
 
-from typing import Literal
+from typing import Literal, cast
 
 import numpy as np
 import numpy.typing as npt
@@ -49,3 +49,37 @@ def generate_random_sparse_symmetric_matrix(
     random_symmetric_matrix = 0.5 * (random_sparse_matrix + random_sparse_matrix.T)
 
     return random_symmetric_matrix
+
+
+def generate_random_sparse_spd_matrix(
+    generator: np.random.Generator,
+    dimension: int,
+    density: float = 0.01,
+    format: SPFormat = "csc",
+) -> sps.sparray:
+    """Generates a random symmetric positive-definite matrix,
+    with random (normally distributed) contents (except on the main diagonal).
+    """
+    random_symmetric_matrix = generate_random_sparse_symmetric_matrix(
+        generator, dimension, density=density, format=format
+    )
+
+    random_symmetric_matrix = cast(sps.csr_array, random_symmetric_matrix)
+
+    identity_matrix = sps.eye_array(dimension, dimension, format=format)
+    identity_matrix = cast(sps.csr_array, identity_matrix)
+
+    # Add a large diagonal matrix (n * I_n) to the random symmetric matrix,
+    # to ensure it becomes diagonally dominant. This will ensure it's also positive definite.
+    random_spd_matrix = random_symmetric_matrix + dimension * identity_matrix
+
+    return cast(sps.sparray, random_spd_matrix)
+
+
+def generate_random_vector(
+    generator: np.random.Generator, rows: int
+) -> npt.NDArray[np.float64]:
+    """Generates a random vector with random (normally distributed) contents."""
+    random_vector = generator.normal(loc=0.0, scale=1.0, size=rows)
+
+    return random_vector
