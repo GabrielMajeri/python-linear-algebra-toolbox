@@ -10,9 +10,11 @@ The guiding principles for developing this library are:
 
 - The code should be **well-documented**, **concise** and easily **readable**.
 
+- Existing high-quality code and libraries should be **reused** as much as possible, avoiding the ["not invented here"](https://en.wikipedia.org/wiki/Not_invented_here) syndrome.
+
 - The codebase should be **thoroughly tested** to ensure it is reliable in a variety of situations.
 
-In order to achieve the first goal, we rely on efficient implementations of fundamental operations and data structres in [NumPy](https://numpy.org/) and [SciPy](https://scipy.org/), as well as on [Numba](https://numba.pydata.org/) to speed up functions by JIT-compiling them to native code. For the second goal, we try to decorate our functions with type information and use [Ruff](https://github.com/astral-sh/ruff) to perform linting and static type checking. For the third goal, we maintain a large test suite, using the [pytest](https://docs.pytest.org/en/stable/) framework.
+In order to achieve the first goal, we rely on efficient implementations of fundamental operations and data structres in [NumPy](https://numpy.org/) and [SciPy](https://scipy.org/), as well as on [Numba](https://numba.pydata.org/) to speed up functions by JIT-compiling them to native code. For the second goal, we try to decorate our functions with type information and use [Ruff](https://github.com/astral-sh/ruff) to perform linting and static type checking. For the fourth goal, we maintain a large test suite, using the [pytest](https://docs.pytest.org/en/stable/) framework.
 
 ## Development instructions
 
