@@ -13,6 +13,6 @@ end_of_line = lf
 insert_final_newline = true
 
 [*.py]
-# Use 2 spaces for indentation in Python files
+# Use 4 spaces for indentation in Python files
 indent_style = space
-indent_size = 2
+indent_size = 4
