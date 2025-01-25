@@ -1,6 +1,11 @@
 # Python interpreter cache files
 __pycache__/
 
+# Cache directories
+/.pytest_cache/
+/.mypy_cache/
+/.ruff_cache/
+
 # Test results
 /junit/
 
