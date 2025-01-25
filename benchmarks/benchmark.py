@@ -6,7 +6,8 @@ from linalgtoolbox.random import generate_random_dense_orthogonal_matrix
 generator = np.random.default_rng(42)
 dimension = 1_000
 
-generate_random_dense_orthogonal_matrix(generator, dimension)
+# Run the function once to ensure it is compiled and cached
+_ = generate_random_dense_orthogonal_matrix(generator, dimension)
 
 # Benchmark the function
 result = timeit(

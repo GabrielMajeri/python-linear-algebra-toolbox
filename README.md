@@ -33,7 +33,7 @@ pip install --editable .
 
 ### Linting the code
 
-The recommended tool to efficiently format, lint and type-check the code is [Ruff](https://github.com/astral-sh/ruff?tab=readme-ov-file).
+The recommended tool to efficiently format and lint the code is [Ruff](https://github.com/astral-sh/ruff?tab=readme-ov-file).
 
 Once installed, you can do
 
@@ -42,6 +42,16 @@ ruff check
 ```
 
 If you're using [VS Code](https://code.visualstudio.com/) for development, you can also install [the official Ruff extension](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff), for a better integration.
+
+### Type-checking the code
+
+The recommended tool for type-checking the code is [basedpyright](https://github.com/DetachHead/basedpyright). After installing it, you can use it by running
+
+```sh
+basedpyright
+```
+
+It has [a VSCode extension](https://marketplace.visualstudio.com/items?itemName=detachhead.basedpyright) as well.
 
 ### Running the benchmarks
 

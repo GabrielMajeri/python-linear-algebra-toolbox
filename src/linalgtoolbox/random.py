@@ -1,9 +1,10 @@
 "Helpers for generating random matrices of various kinds."
 
-from typing import Any, Literal
+from typing import Literal
 
 import numpy as np
-import scipy as sp
+import numpy.typing as npt
+import scipy.sparse as sps
 
 
 SPFormat = Literal["csc", "csr", "coo", "bsr"]
@@ -11,7 +12,7 @@ SPFormat = Literal["csc", "csr", "coo", "bsr"]
 
 def generate_random_dense_matrix(
     generator: np.random.Generator, dimension: int
-) -> np.ndarray[Any, np.dtype[np.float64]]:
+) -> npt.NDArray[np.float64]:
     """Generates a dense matrix of the given size
     with random (normally distributed) contents.
     """
@@ -21,7 +22,7 @@ def generate_random_dense_matrix(
 
 def generate_random_dense_orthogonal_matrix(
     generator: np.random.Generator, dimension: int
-) -> np.ndarray[Any, np.dtype[np.float64]]:
+) -> npt.NDArray[np.float64]:
     """Generates a random orthogonal matrix (dense) of the given size."""
     # Generate an arbitrary random matrix
     random_matrix = generate_random_dense_matrix(generator, dimension)
@@ -35,12 +36,12 @@ def generate_random_sparse_symmetric_matrix(
     dimension: int,
     density: float = 0.01,
     format: SPFormat = "csc",
-) -> sp.sparse.sparray:
+) -> sps.sparray:
     """Generates a symmetric matrix of the given size
     with random (normally distributed) contents.
     """
     shape = (dimension, dimension)
-    random_sparse_matrix = sp.sparse.random_array(
+    random_sparse_matrix = sps.random_array(
         shape, density=density, format=format, dtype=np.float64, rng=generator
     )
 
