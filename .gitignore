@@ -1,8 +1,12 @@
 # Python interpreter cache files
 __pycache__/
 
+# Test results
+/junit/
+
 # Code coverage data
 .coverage
+coverage.xml
 
 # MacOS-generate temporary files
 .DS_Store

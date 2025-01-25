@@ -5,13 +5,10 @@ authors = [{ name = "Gabriel Majeri", email = "gabriel.majeri6@gmail.com" }]
 description = "A linear algebra toolbox for Python."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-  "numpy>=2.0",
-  "scipy>=1.15",
-]
+dependencies = ["numpy>=2.0", "scipy>=1.15"]
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
 ]
 license = "MIT"
 license-files = ["LICENSE.txt"]
@@ -23,3 +20,6 @@ Issues = "https://github.com/GabrielMajeri/python-linear-algebra-toolbox/issues"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]

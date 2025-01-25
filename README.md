@@ -26,7 +26,7 @@ This library requires a relatively modern version of [Python](https://www.python
 Once you've got a basic Python installation set up, you can install this package in editable/development mode by using [`pip`](https://pypi.org/project/pip/):
 
 ```sh
-pip install -e .
+pip install --editable .
 ```
 
 ### Linting the code
