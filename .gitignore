@@ -1,0 +1,8 @@
+# Python interpreter cache files
+__pycache__/
+
+# Code coverage data
+.coverage
+
+# MacOS-generate temporary files
+.DS_Store
