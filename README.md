@@ -6,13 +6,13 @@ This repository contains a set of classes and functions for doing [numerical lin
 
 The guiding principles for developing this library are:
 
-* The code should be **performant**, aiming to be as fast as if you'd written it yourself in a lower-level language.
+- The code should be **performant**, aiming to be as fast as if you'd written it yourself in a lower-level language.
 
-* The code should be **well-documented**, **concise** and easily **readable**.
+- The code should be **well-documented**, **concise** and easily **readable**.
 
-* The codebase should be **thoroughly tested** to ensure it is reliable in a variety of situations.
+- The codebase should be **thoroughly tested** to ensure it is reliable in a variety of situations.
 
-In order to achieve the first goal, we rely on efficient implementations of fundamental operations and data structres in [NumPy](https://numpy.org/) and [SciPy](https://scipy.org/), as well as on [Numba](https://numba.pydata.org/) to speed up functions by JIT-compiling them to native code.
+In order to achieve the first goal, we rely on efficient implementations of fundamental operations and data structres in [NumPy](https://numpy.org/) and [SciPy](https://scipy.org/), as well as on [Numba](https://numba.pydata.org/) to speed up functions by JIT-compiling them to native code. For the second goal, we try to decorate our functions with type information and use [Ruff](https://github.com/astral-sh/ruff) to perform linting and static type checking. For the third goal, we maintain a large test suite, using the [pytest](https://docs.pytest.org/en/stable/) framework.
 
 ## Development instructions
 
@@ -28,6 +28,18 @@ Once you've got a basic Python installation set up, you can install this package
 ```sh
 pip install -e .
 ```
+
+### Linting the code
+
+The recommended tool to efficiently format, lint and type-check the code is [Ruff](https://github.com/astral-sh/ruff?tab=readme-ov-file).
+
+Once installed, you can do
+
+```sh
+ruff check
+```
+
+If you're using [VS Code](https://code.visualstudio.com/) for development, you can also install [the official Ruff extension](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff), for a better integration.
 
 ### Running the benchmarks
 

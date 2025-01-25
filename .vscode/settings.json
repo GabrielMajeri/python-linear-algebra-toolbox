@@ -1,0 +1,9 @@
+{
+  // Automatically format all files when saving them
+  "editor.formatOnSave": true,
+  // Enable strong type checking rules
+  "python.analysis.typeCheckingMode": "strict",
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  }
+}
