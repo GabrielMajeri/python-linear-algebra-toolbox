@@ -1,0 +1,18 @@
+# EditorConfig is a tool to ensure consisten coding style
+# across text editors and IDEs: https://editorconfig.org/
+
+# This is the project's top-most EditorConfig file
+root = true
+
+[*]
+# Encode files using UTF-8 by default
+charset = utf-8
+
+# Unix-style newlines with a newline ending every file
+end_of_line = lf
+insert_final_newline = true
+
+[*.py]
+# Use 2 spaces for indentation in Python files
+indent_style = space
+indent_size = 2
