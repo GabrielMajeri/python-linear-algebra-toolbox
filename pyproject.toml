@@ -1,0 +1,25 @@
+[project]
+name = "linalgtoolbox"
+version = "0.0.1"
+authors = [{ name = "Gabriel Majeri", email = "gabriel.majeri6@gmail.com" }]
+description = "A linear algebra toolbox for Python."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "numpy>=2.0",
+  "scipy>=1.15",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE.txt"]
+
+[project.urls]
+Homepage = "https://github.com/GabrielMajeri/python-linear-algebra-toolbox"
+Issues = "https://github.com/GabrielMajeri/python-linear-algebra-toolbox/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
