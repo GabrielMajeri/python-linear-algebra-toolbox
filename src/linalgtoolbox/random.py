@@ -20,6 +20,33 @@ def generate_random_dense_matrix(
     return generator.normal(size=shape)
 
 
+def generate_random_dense_symmetric_matrix(
+    generator: np.random.Generator, dimension: int
+) -> npt.NDArray[np.float64]:
+    """Generates a dense symmetric matrix of the given size
+    with random (normally distributed) contents.
+    """
+    random_matrix = generate_random_dense_matrix(generator, dimension)
+
+    # Cost: O(n^2)
+    random_symmetric_matrix = 0.5 * (random_matrix + random_matrix.T)
+
+    return random_symmetric_matrix
+
+
+def generate_random_dense_spd_matrix(
+    generator: np.random.Generator, dimension: int
+) -> npt.NDArray[np.float64]:
+    """Generates a dense symmetric and positive-definite matrix of the given size
+    with random (normally distributed) contents.
+    """
+    random_symmetric_matrix = generate_random_dense_symmetric_matrix(
+        generator, dimension
+    )
+
+    return random_symmetric_matrix + dimension * np.eye(dimension)
+
+
 def generate_random_dense_orthogonal_matrix(
     generator: np.random.Generator, dimension: int
 ) -> npt.NDArray[np.float64]:
