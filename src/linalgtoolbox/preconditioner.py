@@ -37,6 +37,19 @@ class IdentityPreconditioner(Preconditioner):
         return rhs
 
 
+class ApproximateInversePreconditioner(Preconditioner):
+    "Use an approximation of the matrix inverse as a preconditioner."
+
+    inverse: Array
+
+    def __init__(self, inverse: Array):
+        self.inverse = inverse
+
+    @override
+    def solve(self, rhs: DenseFloatArray) -> DenseFloatArray:
+        return cast(DenseFloatArray, self.inverse) @ rhs
+
+
 class LUPreconditioner(Preconditioner):
     """Preconditioner based on the LU decomposition."""
 
@@ -55,7 +68,7 @@ class LUPreconditioner(Preconditioner):
         # Solve the system `U x = y`
         x = sp.linalg.solve_triangular(self.upper, y, lower=False)
 
-        return x
+        return cast(DenseFloatArray, x)
 
 
 class CholeskyPreconditioner(LUPreconditioner):
